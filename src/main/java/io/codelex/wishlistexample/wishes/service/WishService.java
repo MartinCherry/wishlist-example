@@ -2,7 +2,9 @@ package io.codelex.wishlistexample.wishes.service;
 
 import io.codelex.wishlistexample.wishes.domain.Wish;
 import io.codelex.wishlistexample.wishes.repository.WishRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +26,9 @@ public class WishService {
     }
 
     public Wish getWishById(int id) {
-        return wishRepository.findById(id).get();
+        return wishRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Wish " +
+                "not found"));
     }
 
     public void saveOrUpdate(Wish wish) {
@@ -32,7 +36,12 @@ public class WishService {
     }
 
     public void delete(int id) {
-        wishRepository.deleteById(id);
+        try {
+            wishRepository.deleteById(id);
+        }
+        catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Wish not found");
+        }
     }
 
 }
