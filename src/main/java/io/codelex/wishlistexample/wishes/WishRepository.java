@@ -1,4 +1,4 @@
-package io.codelex.wishlistexample.wishes.repository;
+package io.codelex.wishlistexample.wishes;
 
 
 import io.codelex.wishlistexample.wishes.domain.Wish;

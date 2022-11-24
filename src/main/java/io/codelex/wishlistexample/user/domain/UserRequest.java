@@ -1,7 +1,6 @@
 package io.codelex.wishlistexample.user.domain;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 public class UserRequest {
@@ -24,8 +23,5 @@ public class UserRequest {
         this.users = users;
     }
 
-    public String getUserListNamesToString() {
-        return getUsers().stream().map(User::getName).collect(Collectors.joining(", "));
-    }
 
 }

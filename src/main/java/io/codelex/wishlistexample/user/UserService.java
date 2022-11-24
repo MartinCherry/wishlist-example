@@ -1,23 +1,17 @@
 package io.codelex.wishlistexample.user;
 
+import io.codelex.wishlistexample.user.domain.User;
 import io.codelex.wishlistexample.user.domain.UserRequest;
 import org.springframework.stereotype.Service;
+
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
 
-    private final UserRepository repository;
 
-    public UserService(UserRepository repository) {
-        this.repository = repository;
-    }
-
-    public void createUsers(UserRequest userList) {
-        this.repository.createUserList(userList);
-    }
-
-    public String getUserNames() {
-        return this.repository.getUserNames();
+    public String createUsers(UserRequest userList) {
+        return userList.getUsers().stream().map(User::getName).collect(Collectors.joining(", "));
     }
 
 }

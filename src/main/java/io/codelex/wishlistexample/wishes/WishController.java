@@ -1,10 +1,7 @@
-package io.codelex.wishlistexample.wishes.controller;
+package io.codelex.wishlistexample.wishes;
 
 import io.codelex.wishlistexample.wishes.domain.Wish;
-import io.codelex.wishlistexample.wishes.service.WishService;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/wishes")
@@ -17,22 +14,22 @@ public class WishController {
     }
 
     @GetMapping()
-    private List<Wish> getAllWishes() {
+    public Iterable<Wish> getAllWishes() {
         return wishService.getAllWishes();
     }
 
     @GetMapping("/{id}")
-    private Wish getWIsh(@PathVariable("id") int id) {
+    public Wish getWIsh(@PathVariable("id") int id) {
         return wishService.getWishById(id);
     }
 
     @DeleteMapping("/{id}")
-    private void deleteWish(@PathVariable("id") int id) {
+    public void deleteWish(@PathVariable("id") int id) {
         wishService.delete(id);
     }
 
     @PostMapping()
-    private int saveWish(@RequestBody Wish wish) {
+    public int saveWish(@RequestBody Wish wish) {
         wishService.saveOrUpdate(wish);
         return wish.getId();
     }

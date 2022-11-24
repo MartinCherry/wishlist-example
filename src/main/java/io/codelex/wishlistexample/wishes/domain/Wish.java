@@ -13,6 +13,14 @@ public class Wish {
     @Column
     private String wish;
 
+    public Wish(String wish) {
+        this.wish = wish;
+    }
+
+    public Wish() {
+
+    }
+
     public int getId() {
         return id;
     }
