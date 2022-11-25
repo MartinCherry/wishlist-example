@@ -1,5 +1,6 @@
 # Wishlist Example
 
+To run application run command - mvn spring-boot:run
 Application is running on http://localhost:8080
 
 Wish:
