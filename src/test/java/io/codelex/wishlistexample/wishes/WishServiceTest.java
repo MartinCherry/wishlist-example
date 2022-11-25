@@ -3,7 +3,6 @@ package io.codelex.wishlistexample.wishes;
 
 import io.codelex.wishlistexample.wishes.domain.Wish;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -28,21 +27,21 @@ public class WishServiceTest {
 
 
     @Test
-    public void shouldThrowErrorWhenNotFound(){
+    public void shouldThrowErrorWhenNotFound() {
         ResponseStatusException exception = Assertions.assertThrows(ResponseStatusException.class,
                 () -> service.getWishById(1));
         Assertions.assertEquals(exception.getStatus(), HttpStatus.NOT_FOUND);
     }
 
     @Test
-    public void shouldThrowErrorWhenTryingToDeleteNotExistingWish(){
+    public void shouldThrowErrorWhenTryingToDeleteNotExistingWish() {
         ResponseStatusException exception = Assertions.assertThrows(ResponseStatusException.class,
                 () -> service.delete(1));
         Assertions.assertEquals(exception.getStatus(), HttpStatus.NOT_FOUND);
     }
 
     @Test
-    public void shouldReturnFirstWish(){
+    public void shouldReturnFirstWish() {
 
         Wish testWish = createTestWish();
 
@@ -54,7 +53,7 @@ public class WishServiceTest {
     }
 
     @Test
-    public void shouldReturnWishList(){
+    public void shouldReturnWishList() {
 
         List<Wish> testWishList = createWishList();
 
@@ -67,15 +66,15 @@ public class WishServiceTest {
     }
 
 
-    private Wish createTestWish(){
+    private Wish createTestWish() {
         Wish testWish = new Wish("TestWish");
         testWish.setId(1);
         return testWish;
     }
 
-    private List<Wish> createWishList(){
+    private List<Wish> createWishList() {
         List<Wish> wishList = new ArrayList<>();
-        for (int i = 0; i<5; i++) {
+        for (int i = 0; i < 5; i++) {
             wishList.add(createTestWish());
         }
         return wishList;

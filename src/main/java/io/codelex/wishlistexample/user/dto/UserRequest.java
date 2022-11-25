@@ -1,4 +1,6 @@
-package io.codelex.wishlistexample.user.domain;
+package io.codelex.wishlistexample.user.dto;
+
+import io.codelex.wishlistexample.user.domain.User;
 
 import java.util.List;
 

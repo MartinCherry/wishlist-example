@@ -1,6 +1,6 @@
 package io.codelex.wishlistexample.user;
 
-import io.codelex.wishlistexample.user.domain.UserRequest;
+import io.codelex.wishlistexample.user.dto.UserRequest;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
