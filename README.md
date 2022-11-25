@@ -8,9 +8,44 @@ Wish:
 
 Add wish -> /wishes {POST}
 
+```
+{
+    "wish":"My Wish"
+}
+```
+
 Get all wishes -> /wishes {GET}
+```
+[
+    {
+        "id": 1,
+        "wish": "My Wish"   
+    },
+    {    
+        "id": 2,
+        "wish": "My Wish"
+    }
+]
+```
 
 Get one wish -> /wishes/{id} {GET}
+
+```
+{
+    "id": 1,
+    "wish": "My Wish"
+}
+```
+
+Update exsisting wish -> /wishes/{id} {POST}
+
+```
+{
+    "id": 1,
+    "wish": "My Updated Wish"
+}
+```
+
 
 Delete one wish -> /wishes/{id} {DELETE}
 
@@ -18,7 +53,43 @@ Users:
 
 Send JSON file to /users {POST}
 
+```
+{"users":[{
+    "type":"User",
+    "id":1,
+    "name":"John",
+    "email":"Igor@inbox.lv"
+},{
+    "type":"User",
+    "id":1,
+    "name":"Peter",
+    "email":"Igor@inbox.lv"
+},{
+    "type":"User",
+    "id":1,
+    "name":"Gabriel",
+    "email":"Igor@inbox.lv"
+},{
+    "type":"User",
+    "id":1,
+    "name":"Ursula",
+    "email":"Igor@inbox.lv"
+},{
+    "type":"User",
+    "id":1,
+    "name":"Alice",
+    "email":"Igor@inbox.lv"
+}
+]}
+```
 Application will return user names in String format.
+
+Return - 
+```
+John, Peter, Gabriel, Ursula, Alice
+```
+
+
 
 ---
 Application is configured to run on H2 database.
