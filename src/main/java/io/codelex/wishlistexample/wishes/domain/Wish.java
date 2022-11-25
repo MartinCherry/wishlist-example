@@ -1,7 +1,8 @@
 package io.codelex.wishlistexample.wishes.domain;
 
+import org.hibernate.Hibernate;
+
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table
@@ -47,14 +48,15 @@ public class Wish {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Wish wish1)) {
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) {
             return false;
         }
-        return getId() == wish1.getId() && getWish().equals(wish1.getWish());
+        Wish wish = (Wish) o;
+        return false;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getWish());
+        return getClass().hashCode();
     }
 }
